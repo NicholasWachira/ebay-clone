@@ -29,6 +29,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//Home
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+//Product Show
+Route::get('/product/{product:slug}', [App\Http\Controllers\HomeController::class, 'show'])->name('product.show');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

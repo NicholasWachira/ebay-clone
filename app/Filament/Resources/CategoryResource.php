@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Card;
 use Str;
 use Closure;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class CategoryResource extends Resource
 {
@@ -35,9 +37,9 @@ class CategoryResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique()
                     ->maxLength(255),
-                ])
+                ]),
+                SpatieMediaLibraryFileUpload::make('categoryImage')->collection('category-images'),
             ]);
     }
 
@@ -47,6 +49,7 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('slug'),
+                SpatieMediaLibraryImageColumn::make('categoryImage')->collection('category-images'),
             ])
             ->filters([
                 //

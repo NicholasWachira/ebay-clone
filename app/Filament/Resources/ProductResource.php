@@ -45,7 +45,6 @@ class ProductResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique()
                     ->maxLength(255),
                 Select::make('category_id')
                         ->label('Category')

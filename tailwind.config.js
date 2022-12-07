@@ -8,11 +8,10 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
     ],
-
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto Condensed', ...defaultTheme.fontFamily.sans],
             },
         },
     },
